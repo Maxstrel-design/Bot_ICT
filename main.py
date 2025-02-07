@@ -1,8 +1,8 @@
 import ccxt
 
 # Убедитесь, что API ключи правильные
-api_key = "mx0vglSadI2X0OHGGF"
-api_secret = "861dcec9b67d4dfe811c6ce3a13b108a"
+api_key = ""
+api_secret = ""
 
 # Создаем объект MEXC для фьючерсного аккаунта
 mexc = ccxt.mexc({
