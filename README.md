@@ -1,2 +1,2 @@
 # Bot_ICT
-test version bot for trading
+test version bot
