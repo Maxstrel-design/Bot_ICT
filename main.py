@@ -1,0 +1,47 @@
+import ccxt
+
+# Убедитесь, что API ключи правильные
+api_key = "mx0vglSadI2X0OHGGF"
+api_secret = "861dcec9b67d4dfe811c6ce3a13b108a"
+
+# Создаем объект MEXC для фьючерсного аккаунта
+mexc = ccxt.mexc({
+    'apiKey': api_key,
+    'secret': api_secret,
+    'enableRateLimit': True,
+    'options': {
+        'defaultType': 'future',  # Указываем, что работаем с фьючерсами
+    },
+})
+
+# Функция для получения фьючерсного баланса в USDT
+def get_futures_balance():
+    try:
+        # Делаем запрос к API для получения баланса фьючерсного счета
+        balance = mexc.private_get('/api/v2/private/futures/asset')
+
+        # Ищем значение баланса для USDT
+        usdt_balance = balance['data'].get('USDT', {}).get('total', 0)
+        return usdt_balance
+    except ccxt.BaseError as e:
+        print(f"Ошибка при получении баланса: {e}")
+        return None
+
+# Печатаем баланс
+usdt_balance = get_futures_balance()
+if usdt_balance is not None:
+    print(f"Ваш фьючерсный баланс в USDT: {usdt_balance}")
+else:
+    print("Не удалось получить баланс.")
+
+
+
+
+
+
+
+
+
+
+
+
