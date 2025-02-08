@@ -1,8 +1,5 @@
+from keys import api_key, api_secret # Importing the API keys from keys.py
 import ccxt
-
-# Убедитесь, что API ключи правильные
-api_key = ""
-api_secret = ""
 
 # Создаем объект MEXC для фьючерсного аккаунта
 mexc = ccxt.mexc({
